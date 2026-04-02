@@ -1,5 +1,7 @@
 # casesensitive
 
+[![CI](https://github.com/go-mg/casesensitive/actions/workflows/ci.yml/badge.svg)](https://github.com/go-mg/casesensitive/actions/workflows/ci.yml)
+
 Case-sensitive JSON unmarshaler for Go.
 
 Unlike `encoding/json`, which performs case-insensitive field matching, this package requires exact field name matches (respecting json tags) at all nesting levels.
