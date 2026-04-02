@@ -16,7 +16,10 @@ func ExampleUnmarshal() {
 	payload := `{"name":"john", "NAME":"hacker", "email":"john@example.com"}`
 
 	var user User
-	json.Unmarshal([]byte(payload), &user)
+	if err := json.Unmarshal([]byte(payload), &user); err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
 
 	fmt.Printf("Name: %s\n", user.Name)
 	fmt.Printf("Email: %s\n", user.Email)
@@ -34,7 +37,10 @@ func ExampleUnmarshal_array() {
 	payload := `[{"id":1,"name":"first"},{"id":2,"name":"second"}]`
 
 	var items []Item
-	json.Unmarshal([]byte(payload), &items)
+	if err := json.Unmarshal([]byte(payload), &items); err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
 
 	for _, item := range items {
 		fmt.Printf("ID: %d, Name: %s\n", item.ID, item.Name)
